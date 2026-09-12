@@ -1,0 +1,29 @@
+#!/bin/bash 
+
+
+
+choice="$(echo -e  "Power Off\nReboot\nSuspend\nExit\n"| dmenu -c -p "Power" -l 10 -bw 2)"
+
+
+case "${choice}" in 
+"Power Off")
+	
+	systemctl poweroff 
+	;;
+	
+Reboot) 
+	systemctl reboot 
+	;; 
+Suspend) 
+	systemctl suspend 
+	;; 
+Exit) 
+	exit 0
+	;;
+*)
+	notify-send "Unknown" 
+	;;
+esac
+
+
+
